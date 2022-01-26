@@ -10,6 +10,15 @@ interface NotesDao
     @Query("Select * from iNotes")
     fun getNote(): LiveData<List<Notes>>
 
+    @Query("Select * from iNotes where priority = 3 ")
+    fun getHighNote(): LiveData<List<Notes>>
+
+    @Query("Select * from iNotes where priority = 2 ")
+    fun getMediumNote(): LiveData<List<Notes>>
+
+    @Query("Select * from iNotes where priority = 1 ")
+    fun getLowNote(): LiveData<List<Notes>>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNote(note:Notes)
 

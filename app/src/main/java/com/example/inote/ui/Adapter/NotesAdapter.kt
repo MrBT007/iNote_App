@@ -3,10 +3,12 @@ package com.example.inote.ui.Adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.inote.Model.Notes
 import com.example.inote.R
 import com.example.inote.databinding.NoteSampleBinding
+import com.example.inote.ui.Fragments.HomeFragmentDirections
 
 class NotesAdapter(var requireContext: Context,var noteslist: List<Notes>) : RecyclerView.Adapter<NotesAdapter.notesviewholder>()
 {
@@ -24,9 +26,9 @@ class NotesAdapter(var requireContext: Context,var noteslist: List<Notes>) : Rec
     override fun onBindViewHolder(holder: notesviewholder, position: Int)
     {
         val data = noteslist[position]
-        holder.binding.sampleTitle.text = data.title
-        holder.binding.sampleSubtitle.text = data.subtitle
-        holder.binding.sampleDate.text = data.date
+        holder.binding.sampleTitle.text = data.title.toString()
+        holder.binding.sampleSubtitle.text = data.subtitle.toString()
+        holder.binding.sampleDate.text = data.date.toString()
         when(data.priority)
         {
             "1"->{
@@ -38,6 +40,11 @@ class NotesAdapter(var requireContext: Context,var noteslist: List<Notes>) : Rec
             "3"->{
                 holder.binding.samplePriority.setBackgroundResource(R.drawable.red_dot)
             }
+        }
+        holder.binding.root.setOnClickListener()
+        {
+            val action = HomeFragmentDirections.actionHomeFragmentToEditFragment(data)
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

@@ -15,14 +15,14 @@ import com.example.inote.ui.Adapter.NotesAdapter
 
 class HomeFragment : Fragment() {
 
-    lateinit var binding:FragmentHomeBinding
-    val viewModel:NotesViewModel by viewModels()
+    lateinit var binding: FragmentHomeBinding
+    val viewModel: NotesViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(layoutInflater,container,false)
+        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
         viewModel.getNotes().observe(viewLifecycleOwner,
             {
@@ -30,13 +30,47 @@ class HomeFragment : Fragment() {
 //                {
 //                    Log.e("@@@", "onCreateView: ${i.title}")
 //                }
-                binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(),2)
+                binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(), 2)
 
-                binding.rcvallNotes.adapter = NotesAdapter(requireContext(),it)
+                binding.rcvallNotes.adapter = NotesAdapter(requireContext(), it)
             })
         binding.btnAddNote.setOnClickListener()
         {
-            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_createNoteFragment)
+            Navigation.findNavController(it)
+                .navigate(R.id.action_homeFragment_to_createNoteFragment)
+        }
+
+        binding.filterHigh.setOnClickListener()
+        {
+            viewModel.getHighNotes().observe(viewLifecycleOwner,
+                {
+                    binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.rcvallNotes.adapter = NotesAdapter(requireContext(), it)
+                })
+        }
+        binding.filterMedium.setOnClickListener()
+        {
+            viewModel.getMediumNotes().observe(viewLifecycleOwner,
+                {
+                    binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.rcvallNotes.adapter = NotesAdapter(requireContext(), it)
+                })
+        }
+        binding.filterLow.setOnClickListener()
+        {
+            viewModel.getLowNotes().observe(viewLifecycleOwner,
+                {
+                    binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.rcvallNotes.adapter = NotesAdapter(requireContext(), it)
+                })
+        }
+        binding.allnotes.setOnClickListener()
+        {
+            viewModel.getNotes().observe(viewLifecycleOwner,
+                {
+                    binding.rcvallNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.rcvallNotes.adapter = NotesAdapter(requireContext(), it)
+                })
         }
         return binding.root
     }

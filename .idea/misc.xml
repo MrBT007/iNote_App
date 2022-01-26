@@ -4,8 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/OLX20/app/src/main/res/drawable/edit_custom.xml" value="0.27291666666666664" />
+        <entry key="..\:/OLX20/app/src/main/res/drawable/filter.xml" value="0.27291666666666664" />
+        <entry key="..\:/OLX20/app/src/main/res/drawable/filter_background.xml" value="0.27291666666666664" />
+        <entry key="..\:/OLX20/app/src/main/res/drawable/filtertext_background.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/gradient.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/green_dot.xml" value="0.27291666666666664" />
+        <entry key="..\:/OLX20/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/no_delete_button.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/red_dot.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/yellow_dot.xml" value="0.27291666666666664" />
