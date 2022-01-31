@@ -1,20 +1,22 @@
 package com.example.inote.ui.Fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
+import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.inote.Model.Notes
 import com.example.inote.R
 import com.example.inote.ViewModel.NotesViewModel
 import com.example.inote.databinding.FragmentEditBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
 
@@ -81,7 +83,7 @@ class EditFragment : Fragment()
         {
             updateNotes(it)
         }
-
+        setHasOptionsMenu(true) // for menu options like delete , search
         return binding.root
     }
 
@@ -103,4 +105,37 @@ class EditFragment : Fragment()
         Navigation.findNavController(it!!).navigate(R.id.action_editFragment_to_homeFragment)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_delete,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menu_delete)
+        {
+            val bottomSheetDialog = BottomSheetDialog(requireContext(),R.style.BootmSheetStyle)
+            bottomSheetDialog.setContentView(R.layout.delete_dialog)
+            bottomSheetDialog.show()
+
+            val textyesdelete = bottomSheetDialog.findViewById<TextView>(R.id.yes_delete)
+            val textnodelete = bottomSheetDialog.findViewById<TextView>(R.id.no_delete)
+
+            textnodelete?.setOnClickListener()
+            {
+                bottomSheetDialog.dismiss()
+            }
+            textyesdelete?.setOnClickListener()
+            {
+                viewModel.deleteNotes(notes.data.id!!)
+                bottomSheetDialog.dismiss()
+                Navigation.findNavController(view!!).navigate(R.id.action_editFragment_to_homeFragment)
+            }
+        }
+        if(item.itemId == R.id.home)
+        {
+            Log.e("@@@@", "onOptionsItemSelected: Pressed Back Button")
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

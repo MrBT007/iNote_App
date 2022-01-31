@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/OLX20/app/src/main/res/drawable/delete_sheet.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/edit_custom.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/filter.xml" value="0.27291666666666664" />
         <entry key="..\:/OLX20/app/src/main/res/drawable/filter_background.xml" value="0.27291666666666664" />
@@ -21,6 +22,10 @@
         <entry key="..\:/OLX20/app/src/main/res/layout/fragment_edit.xml" value="0.25677083333333334" />
         <entry key="..\:/OLX20/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/OLX20/app/src/main/res/layout/note_sample.xml" value="0.264" />
+        <entry key="..\:/OLX20/app/src/main/res/layout/toolbar.xml" value="0.25677083333333334" />
+        <entry key="..\:/OLX20/app/src/main/res/menu/menu.xml" value="0.264" />
+        <entry key="..\:/OLX20/app/src/main/res/menu/menu_delete.xml" value="0.25677083333333334" />
+        <entry key="..\:/OLX20/app/src/main/res/menu/search_menu.xml" value="0.25677083333333334" />
       </map>
     </option>
   </component>

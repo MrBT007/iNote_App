@@ -47,5 +47,9 @@ class NotesAdapter(var requireContext: Context,var noteslist: List<Notes>) : Rec
             Navigation.findNavController(it).navigate(action)
         }
     }
-
+    fun filtering(newFilteredList: ArrayList<Notes>)
+    {
+        noteslist = newFilteredList
+        notifyDataSetChanged()
+    }
 }

@@ -11,7 +11,8 @@
         android:theme="@style/Theme.OLX20">
         <activity
             android:name=".SplashScreen"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
