@@ -29,4 +29,10 @@
             android:resource="@array/preloaded_fonts" />
     </application>
 
+    <supports-screens android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true" />
+
 </manifest>

@@ -128,7 +128,7 @@ class HomeFragment : Fragment() {
         val newFilteredList = arrayListOf<Notes>()
         for(i in oldmyNotes)
         {
-            if(i.title.contains(p0!!) || i.subtitle.contains(p0))
+            if(i.title.lowercase().contains(p0?.lowercase()!!) || i.subtitle.lowercase().contains(p0.lowercase()))
             {
                 newFilteredList.add(i)
             }

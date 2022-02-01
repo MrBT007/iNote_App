@@ -8,6 +8,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import android.os.Build
+import android.view.View
+
 
 class MainActivity : AppCompatActivity()
 {
@@ -19,7 +22,6 @@ class MainActivity : AppCompatActivity()
         actionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // manages app navigation within NavHost
         navController = findNavController(R.id.fragmentContainerView)
         appBarConfiguration = AppBarConfiguration(navController.graph)
